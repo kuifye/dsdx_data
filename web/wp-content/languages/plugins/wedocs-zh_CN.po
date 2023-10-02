@@ -1,0 +1,568 @@
+# Translation of Plugins - weDocs &#8211; Knowledgebase and Documentation Plugin for WordPress - Stable (latest release) in Chinese (China)
+# This file is distributed under the same license as the Plugins - weDocs &#8211; Knowledgebase and Documentation Plugin for WordPress - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-12-08 03:58:27+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: zh_CN\n"
+"Project-Id-Version: Plugins - weDocs &#8211; Knowledgebase and Documentation Plugin for WordPress - Stable (latest release)\n"
+
+#: includes/Frontend.php:74
+msgid "Powered by weDocs plugin for WordPress"
+msgstr "由 WordPress 插件 weDocs 提供支持"
+
+#. Author URI of the plugin
+msgid "https://wedocs.co/?utm_source=wporg&utm_medium=banner&utm_campaign=author-uri"
+msgstr "https://wedocs.co/?utm_source=wporg&utm_medium=banner&utm_campaign=author-uri"
+
+#. Author of the plugin
+msgid "weDevs"
+msgstr "weDevs"
+
+#: includes/Admin/Admin.php:51
+msgid "Are you sure to delete the entire section? Articles inside this section will be deleted too!"
+msgstr "您确定要删除整个部分吗？本栏目内的文章也将被删除！"
+
+#: includes/Admin/Admin.php:50
+msgid "Are you sure?"
+msgstr "您确定吗？"
+
+#: includes/Admin/Admin.php:49
+msgid "Cancel"
+msgstr "取消"
+
+#: includes/Admin/Admin.php:48
+msgid "Yes, delete it!"
+msgstr "是的，删除它！"
+
+#: includes/Admin/Admin.php:47
+msgid "OK"
+msgstr "确定"
+
+#: includes/Post_Types.php:89
+msgid "New Tag"
+msgstr "新标签"
+
+#: includes/Admin/Settings.php:103
+msgid "Allow Comments"
+msgstr "允许评论"
+
+#: includes/Admin/Settings.php:102
+msgid "Comments"
+msgstr "评论"
+
+#: includes/API/API.php:395
+msgid "Invalid doc ID."
+msgstr "无效的文档ID。"
+
+#: includes/API/API.php:381
+msgid "No email given"
+msgstr "未提供电子邮件"
+
+#: includes/API/API.php:377
+msgid "No name given"
+msgstr "未给出名称"
+
+#: includes/API/API.php:291
+msgid "The page number requested is larger than the number of pages available."
+msgstr "请求的页数大于可用的页数。"
+
+#: includes/API/API.php:121
+msgid "Maximum number of items to be returned in result set."
+msgstr "结果集中要返回的最大项目数。"
+
+#: includes/API/API.php:113
+msgid "Current page of the collection."
+msgstr "集合的当前页面。"
+
+#: includes/API/API.php:108
+msgid "The ID for the parent of the object."
+msgstr "对象父级的ID 。"
+
+#: includes/API/API.php:101
+msgid "Limit results to those matching a string."
+msgstr "将结果限制为与字符串匹配的结果。"
+
+#: includes/API/API.php:51
+msgid "Email address of the author."
+msgstr "作者的电子邮件地址。"
+
+#: includes/Ajax.php:93
+msgid "You are not allowed to delete this item."
+msgstr "您不能删除此项目。"
+
+#: templates/single-docs.php:60
+msgid "Articles"
+msgstr "文章"
+
+#. Description of the plugin
+msgid "A documentation plugin for WordPress"
+msgstr "WordPress的文档插件"
+
+#. Plugin URI of the plugin
+msgid "https://wedocs.co/"
+msgstr "https://wedocs.co/"
+
+#: includes/Post_Types.php:102
+msgid "Tags list navigation"
+msgstr "标签列表导航"
+
+#: includes/Post_Types.php:101
+msgid "Tags list"
+msgstr "标签列表"
+
+#: includes/Post_Types.php:100
+msgid "No items"
+msgstr "无项目。"
+
+#: includes/Post_Types.php:99
+msgid "Not Found"
+msgstr "未找到"
+
+#: includes/Post_Types.php:98
+msgid "Search Tags"
+msgstr "搜索标签"
+
+#: includes/Post_Types.php:97
+msgid "Popular Tags"
+msgstr "热门标签"
+
+#: includes/Post_Types.php:96
+msgid "Choose from the most used"
+msgstr "从最常用的选择"
+
+#: includes/Post_Types.php:95
+msgid "Add or remove items"
+msgstr "添加或删除项目"
+
+#: includes/Post_Types.php:94
+msgid "Separate items with commas"
+msgstr "用逗号分隔项目"
+
+#: includes/Post_Types.php:93
+msgid "View Tag"
+msgstr "查看标签"
+
+#: includes/Post_Types.php:92
+msgid "Update Tag"
+msgstr "更新标签"
+
+#: includes/Post_Types.php:91
+msgid "Edit Tag"
+msgstr "编辑标签"
+
+#: includes/Post_Types.php:90
+msgid "Add New Item"
+msgstr "添加新项目"
+
+#: includes/Post_Types.php:88
+msgid "Parent Tag:"
+msgstr "父标签："
+
+#: includes/Post_Types.php:87
+msgid "Parent Tag"
+msgstr "父标签"
+
+#: includes/Post_Types.php:86
+msgid "All Tags"
+msgstr "所有标签"
+
+#: includes/Post_Types.php:84
+msgctxt "Taxonomy Singular Name"
+msgid "Tag"
+msgstr "标签"
+
+#: includes/Post_Types.php:83
+msgctxt "Taxonomy General Name"
+msgid "Tags"
+msgstr "标签"
+
+#: includes/Post_Types.php:44
+msgid "Not found in Trash"
+msgstr "在回收站中找不到"
+
+#: includes/Post_Types.php:43
+msgid "Not documentation found"
+msgstr "没有找到文档"
+
+#: includes/Post_Types.php:42
+msgid "Search Documentation"
+msgstr "搜索文档"
+
+#: includes/Post_Types.php:41
+msgid "Update Documentation"
+msgstr "更新文档"
+
+#: includes/Post_Types.php:40
+msgid "Edit Documentation"
+msgstr "编辑文档"
+
+#: includes/Post_Types.php:39
+msgid "Add New"
+msgstr "添加新的"
+
+#: includes/Post_Types.php:38
+msgid "Add Documentation"
+msgstr "添加文档"
+
+#: includes/Post_Types.php:37
+msgid "View Documentation"
+msgstr "查看文档"
+
+#: includes/Post_Types.php:36
+msgid "All Documentations"
+msgstr "所有文档"
+
+#: includes/Post_Types.php:35
+msgid "Parent Doc"
+msgstr "父文档"
+
+#: includes/Post_Types.php:34
+msgid "Documentation"
+msgstr "文档"
+
+#: includes/Post_Types.php:33
+msgctxt "Post Type Singular Name"
+msgid "Doc"
+msgstr "文档"
+
+#: includes/Post_Types.php:32
+msgctxt "Post Type General Name"
+msgid "Docs"
+msgstr "文档"
+
+#: templates/single-docs.php:92
+msgid "Updated on %s"
+msgstr "最后更新：%s"
+
+#: templates/single-docs.php:82
+msgid "Still stuck?"
+msgstr "仍然有问题？"
+
+#: templates/single-docs.php:71
+msgctxt "Used before tag names."
+msgid "Tags"
+msgstr "标签"
+
+#: templates/single-docs.php:52
+msgid "Docs:"
+msgstr "文档:"
+
+#. translators: %s: Name of current post.
+#: templates/single-docs.php:47
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr "继续阅读 %s <span class=\"meta-nav\">&rarr;</span>"
+
+#: templates/single-docs.php:39
+msgid "Print this article"
+msgstr "打印这篇文章"
+
+#: templates/content-modal.php:54
+msgid "Send"
+msgstr "发送"
+
+#: templates/content-modal.php:46
+msgid "message"
+msgstr "信息"
+
+#: templates/content-modal.php:38
+msgid "subject"
+msgstr "主题"
+
+#: templates/content-modal.php:30
+msgid "Email"
+msgstr "邮件"
+
+#: templates/content-modal.php:22
+msgid "Name"
+msgstr "名称"
+
+#: templates/content-modal.php:14 templates/single-docs.php:82
+msgid "How can we help?"
+msgstr "我们要如何帮助您？"
+
+#: templates/content-feedback.php:23
+msgid "No"
+msgstr "否"
+
+#: templates/content-feedback.php:16
+msgid "Yes"
+msgstr "是"
+
+#: templates/content-feedback.php:12
+msgid "Was this article helpful to you?"
+msgstr "这篇文章对您有用吗？"
+
+#: templates/content-feedback.php:9
+msgid "%d person found this not useful"
+msgid_plural "%d persons found this not useful"
+msgstr[0] "%d 人发现此无用"
+
+#: templates/content-feedback.php:8 templates/content-feedback.php:9
+msgid "No votes yet"
+msgstr "还没有投票"
+
+#: templates/content-feedback.php:8
+msgid "%d person found this useful"
+msgid_plural "%d persons found this useful"
+msgstr[0] "%d人发现这有用"
+
+#: includes/functions.php:350
+msgid "Edit Doc: %s"
+msgstr "编辑文档：%s"
+
+#: includes/functions.php:349
+msgid "Doc Permalink: %s"
+msgstr "文档固定链接：%s"
+
+#: includes/functions.php:348
+msgid "Feedback: %s"
+msgstr "反馈： %s"
+
+#: includes/functions.php:347
+msgid "Email: %s"
+msgstr "邮箱：%s"
+
+#: includes/functions.php:346
+msgid "Author: %1$s (IP: %2$s)"
+msgstr "作者：%1$s (IP: %2$s)"
+
+#: includes/functions.php:345
+msgid "New feedback on your doc \"%s\""
+msgstr "您的文档 \"%s\" 有新的反馈"
+
+#: includes/functions.php:343
+msgid "[%1$s] New Doc Feedback: \"%2$s\""
+msgstr "[%1$s] 新文档反馈： \"%2$s\""
+
+#: includes/functions.php:177
+msgid "Doc navigation"
+msgstr "文档导航"
+
+#: includes/functions.php:85
+msgid "Home"
+msgstr "主页"
+
+#: includes/Shortcode.php:48
+msgid "View Details"
+msgstr "查看详情"
+
+#: includes/Widget.php:70
+msgid "Title:"
+msgstr "标题："
+
+#: includes/Widget.php:68
+msgid "Documentation Search"
+msgstr "文档搜索"
+
+#: includes/Widget.php:54
+msgctxt "submit button"
+msgid "Search"
+msgstr "输入关键词按“回车键”即可搜索"
+
+#: includes/Widget.php:48
+msgctxt "placeholder"
+msgid "Documentation Search &hellip;"
+msgstr "文档搜索&hellip;"
+
+#: includes/Widget.php:47 includes/Widget.php:48
+msgctxt "label"
+msgid "Search for:"
+msgstr "搜索："
+
+#: includes/Widget.php:36
+msgid "All Docs"
+msgstr "所有文档"
+
+#: includes/Widget.php:16
+msgid "weDocs Document Search"
+msgstr "文档搜索"
+
+#: includes/Widget.php:13
+msgid "Document Search Widget"
+msgstr "文档搜索小工具"
+
+#: includes/Ajax.php:227
+msgid "Thanks for your feedback."
+msgstr "感谢您的反馈。"
+
+#: includes/Ajax.php:222
+msgid "Please provide the message details."
+msgstr "请提供消息详细信息。"
+
+#: includes/Ajax.php:218
+msgid "Please provide a subject line."
+msgstr "请输入邮件主题。"
+
+#: includes/Ajax.php:211
+msgid "Please enter a valid email address."
+msgstr "请输入有效的电子邮件地址。"
+
+#: includes/Ajax.php:190
+msgid "Thanks for your feedback!"
+msgstr "感谢您的反馈！"
+
+#: includes/Ajax.php:175
+msgid "Sorry, you've already recorded your feedback!"
+msgstr "抱歉，您已经做过反馈！"
+
+#: includes/Admin/views/admin.php:75
+msgid "create one"
+msgstr "创建一个新的"
+
+#: includes/Admin/views/admin.php:75
+msgid "No docs has been found. Perhaps %s?"
+msgstr "没有找到文档，或许是 %s?"
+
+#: includes/Admin/views/admin.php:69
+msgid "Add Section"
+msgstr "添加章节"
+
+#: includes/Admin/views/admin.php:47 includes/Admin/views/admin.php:58
+msgid "Delete this article"
+msgstr "删除文档"
+
+#: includes/Admin/views/admin.php:46 includes/Admin/views/admin.php:57
+msgid "Preview the article"
+msgstr "预览文档"
+
+#: includes/Admin/views/admin.php:33
+msgid "Add a new article"
+msgstr "添加文档"
+
+#: includes/Admin/views/admin.php:32
+msgid "Delete this section"
+msgstr "删除章节"
+
+#: includes/Admin/views/admin.php:31
+msgid "Preview the section"
+msgstr "预览章节"
+
+#: includes/Admin/views/admin.php:30
+msgid "Re-order this section"
+msgstr "重新排序该章节"
+
+#: includes/Admin/views/admin.php:17
+msgid "Delete this doc"
+msgstr "删除文档"
+
+#: includes/Admin/views/admin.php:16
+msgid "Preview the doc"
+msgstr "预览文档"
+
+#: includes/Admin/views/admin.php:3
+msgid "Add Doc"
+msgstr "添加文档"
+
+#: includes/Admin/views/admin.php:3
+msgid "Documentations"
+msgstr "文档"
+
+#: includes/Admin/Settings.php:142
+msgid "&mdash; Select Page &mdash;"
+msgstr "&mdash; 选择页面 &mdash;"
+
+#: includes/Admin/Settings.php:110
+msgid "Enable article printing"
+msgstr "启用文章打印"
+
+#: includes/Admin/Settings.php:109
+msgid "Print article"
+msgstr "打印文章"
+
+#: includes/Admin/Settings.php:96
+msgid "Enable helpful feedback links"
+msgstr "启用有用的反馈链接"
+
+#: includes/Admin/Settings.php:95
+msgid "Helpful feedback"
+msgstr "有用的反馈"
+
+#: includes/Admin/Settings.php:88
+msgid "The email address where the feedbacks should sent to"
+msgstr "反馈的邮件地址应该送到"
+
+#: includes/Admin/Settings.php:87
+msgid "Email Address"
+msgstr "电子邮件地址"
+
+#: includes/Admin/Settings.php:81
+msgid "Enable Email feedback form"
+msgstr "开启电子邮箱反馈表单"
+
+#: includes/Admin/Settings.php:80
+msgid "Email feedback"
+msgstr "邮件反馈"
+
+#: includes/Admin/Settings.php:74
+msgid "Home page for docs page. Preferably use <code>[wedocs]</code> <a href=\"%s\" target=\"_blank\">shortcode</a> or design your own."
+msgstr "文档的首页。通常是添加了  <code>[wedocs]</code> <a href=\"%s\" target=\"_blank\">简码</a>或您自己设计的页面。"
+
+#: includes/Admin/Settings.php:73
+msgid "Docs Home"
+msgstr "文档首页"
+
+#: includes/Admin/Settings.php:56
+msgid "Plugin Settings"
+msgstr "插件设置"
+
+#: includes/Admin/Settings.php:44
+msgid "Settings"
+msgstr "设置"
+
+#: includes/Admin/Settings.php:44
+msgid "weDocs Settings"
+msgstr "文档设置"
+
+#: includes/Admin/Docs_List_Table.php:67
+msgid "Votes"
+msgstr "投票"
+
+#: includes/Admin/Docs_List_Table.php:27
+msgid "Helpfulness"
+msgstr "有用"
+
+#: includes/Admin/Admin.php:139
+msgid "Use the <a href=\"%s\">classic UI</a>."
+msgstr "使用 <a href=\"%s\">标准界面</a>."
+
+#: includes/Admin/Admin.php:136
+msgid "Thank you for using <strong>weDocs</strong>."
+msgstr "感谢您使用 <strong>weDocs</strong>."
+
+#: includes/Admin/Admin.php:125
+msgid "Thanks :)"
+msgstr "谢谢 :)"
+
+#: includes/Admin/Admin.php:125
+msgid "Thank you for using <strong>weDocs</strong>. Please leave us a %s&#9733;&#9733;&#9733;&#9733;&#9733;%s rating."
+msgstr "感谢您使用 <strong>weDocs</strong>。请给我们个五星 %s&#9733;&#9733;&#9733;&#9733;&#9733;%s 好评吧。"
+
+#: includes/Admin/Admin.php:77 includes/Post_Types.php:85
+msgid "Tags"
+msgstr "标签"
+
+#: includes/Admin/Admin.php:76 includes/functions.php:102
+msgid "Docs"
+msgstr "文档"
+
+#. Plugin Name of the plugin
+#: includes/Admin/Admin.php:75
+msgid "weDocs"
+msgstr "weDocs"
+
+#: includes/Admin/Admin.php:46
+msgid "Enter section title"
+msgstr "输入章节标题"
+
+#: includes/Admin/Admin.php:45
+msgid "Write something"
+msgstr "写点东西"
+
+#: includes/Admin/Admin.php:44
+msgid "Enter doc title"
+msgstr "输入文档标题"

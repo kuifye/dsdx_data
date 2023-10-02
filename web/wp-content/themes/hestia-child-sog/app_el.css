@@ -1,0 +1,65 @@
+
+.el-tabs__nav-wrap{
+	padding:0px 10px;
+}
+
+.el-collapse-item__header{
+	color: none;
+  background-color: none;
+  outline: none;
+	box-shadow: none;
+	padding: 30px;
+}
+
+.app_el-tabs{
+	background-color: #feffff;
+	border-radius: 5px;
+	border: 0.2rem solid #45505F;
+	margin: 15px;
+	box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, .6),
+		2px 2px 2px 2px rgb(255, 253, 252);
+}
+
+.app_el-tab-pane{
+	background-color: #FEFFFF;
+	color: #333;
+	padding:0px 10px 10px 10px;
+}
+
+.app_el-container {
+	background-color: #feffff;
+	border-radius: 5px;
+	border: 0.1rem solid #45505F;
+	margin: 15px;
+	box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, .6),
+		2px 2px 2px 2px rgb(255, 253, 252);
+}
+
+.app_el-header{
+	background-color: #F1F1F1;
+	border-radius: 5px 5px 0px 0px;
+	color: #333;
+	line-height: 60px;
+	box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, .6),
+	2px 2px 2px 2px rgb(255, 253, 252);
+}
+
+.app_el-footer{
+	background-color: #F1F1F1;
+	border-radius: 0px 0px 5px 5px;
+	color: #333;
+	line-height: 60px;
+	box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, .6),
+	2px 2px 2px 2px rgb(255, 253, 252);
+}
+
+.app_el-aside {
+	background-color: #F1F1F1;
+	color: #333;
+	line-height: 200px;
+}
+
+.app_el-main {
+	background-color: #FEFFFF;
+	color: #333;
+}

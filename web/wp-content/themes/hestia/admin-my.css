@@ -1,0 +1,8 @@
+function admin_mycss() {
+	    echo'<style type="text/css">
+	    #wp-admin-bar-wp-logo, #menu-media {
+	        display: none;
+	    }
+	    </style>';
+	 }
+	add_action('admin_head', 'admin_mycss');
