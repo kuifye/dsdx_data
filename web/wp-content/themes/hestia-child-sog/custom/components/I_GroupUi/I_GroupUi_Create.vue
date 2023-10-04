@@ -1,14 +1,23 @@
 <template>
-  <div class='group_ui_card' >
+
+<div class='group_ui_card' >
   <div class='group_ui_card_border'>
-    <form id="form" v-if="visible_flag">
-      *账本名：<input id = "name" type="text"   v-model="group_name">
-      <br>*账本类型：<input id = "class_type" type="text"   v-model="class_type">
-      <br>简介：<input id = "description" type="text"   v-model="description">
-      <br><input id = 'submit' @click="group" type="button" value="创建账本"/>
-    </form>
+    <el-form label-position="left"   label-width="100px">
+      <el-form-item label="*账本名：">
+        <el-input v-model="form.group_name" />
+      </el-form-item>
+      <el-form-item label="*账本类型：">
+        <el-input v-model="form.class_type" />
+      </el-form-item>
+      <el-form-item label="简介：">
+        <el-input v-model="form.description" />
+      </el-form-item>
+      <el-form-item>
+        <el-button @click="group" type="primary">创建账本</el-button>
+      </el-form-item>
+    </el-form>
   </div>
-  </div>
+</div>
 </template>
 
 <script>
@@ -21,11 +30,13 @@ export default {
 
   data:function(){
     return{
-			user_id: 0,
-			visible_flag: false,
-      group_name: '平摊表' + this.getData(new Date()),
-      class_type: '日常饮食',
-      description: "日常饮食平摊",
+      form:{
+        user_id: 0,
+        visible_flag: false,
+        group_name: '平摊表' + this.getData(new Date()),
+        class_type: '日常饮食',
+        description: "日常饮食平摊",
+      }
     }
   },
 
