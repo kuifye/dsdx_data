@@ -1,16 +1,23 @@
 <template>
   <div class='group_ui_card' >
-    <div class='group_ui_card_border'>
-      <span @click="go_group_ui_url" class="delete_button">返回</span>
-      <a class="i_h1">{{ group.name }}</a> 
-      <span @click="share_qrcode" v-if="user_lever>=4" class="delete_button">分享账本</span>
-      <span @click="go_group_settlement_url" v-if="visible_init_flag" class="delete_button">进行结算</span>
-      <br>当前的账本id：<a id = "group.group_id">{{ group.group_id }}</a>
-      <input id = "submit_item" v-if="user_lever>=5" @click="delete_group(group.group_id)"  type="button" value="删除账本"/>
-      
-      <form id="form">
-        <input v-if="!in_this_group_flag" @click="join_group(group.group_id)" id = "submit_group"  type="button" value="加入该群"/>
-      </form>
+    <div class='group_ui_card_border' style="text-align: left;">
+      <el-form inline="true">
+        <el-form-item>
+          <el-button @click="go_group_ui_url">返回</el-button>
+        </el-form-item>
+        <el-form-item>
+          <el-button @click="share_qrcode" v-if="user_lever>=4" type="primary">分享账本</el-button>
+        </el-form-item>
+        <el-form-item>
+          <el-button @click="go_group_settlement_url" v-if="visible_init_flag" type="primary">进行结算</el-button>
+        </el-form-item>
+        <el-form-item>
+          <el-button id = "submit_group" v-if="!in_this_group_flag" @click="join_group(group.group_id)" type="primary">加入该群</el-button>
+        </el-form-item>
+        <el-form-item>
+          <el-button id = "submit_item" v-if="user_lever>=5" @click="delete_group(group.group_id)" type="danger">删除账本</el-button>
+        </el-form-item>
+      </el-form>
     </div>
   </div>
 </template>
