@@ -1,7 +1,10 @@
+<!-- 组件：账本标题 -->
 <template>
   <div class='group_ui_card' >
     <div class='group_ui_card_border' style="text-align: left;">
       <el-form inline="true">
+        <a class="i_h1">{{ group.name }}</a> 
+        <br>当前的账本id：<a id = "group.group_id">{{ group.group_id }}</a><br>
         <el-form-item>
           <el-button @click="go_group_ui_url">返回</el-button>
         </el-form-item>
@@ -24,6 +27,8 @@
 
 <script>
 export default {
+  name: 'I_GroupItem_Tittle',
+
   props: {
     group: {
       type: Object,

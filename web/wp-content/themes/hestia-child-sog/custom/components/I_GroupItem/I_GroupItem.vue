@@ -1,5 +1,9 @@
+<!-- 页面：管理账本 -->
 <template>
     <div>
+    <!-- 回到顶部 -->
+    <I_BackTop/>
+    <!-- 账本标题 -->
     <I_GroupItem_Tittle 
       :group="group" 
       :user_lever="user_lever"
@@ -7,31 +11,37 @@
       :visible_init_flag="visible_init_flag"
       @on-qrcode="show_qrcode"
     />
+    <!-- 分享链接用的二维码 -->
     <I_Qrcode
       :key="key"
       :group="group"
       :visible_qrcode_flag="visible_qrcode_flag"
     />
+    <!-- 账本控制器：添加开支等 -->
     <I_GroupItem_AddCosts
       :url_name="url_name"
       @on-item_data="new_item_data"
       v-if="in_this_group_flag"
     />
+    <!-- 该群组的用户列表 -->
     <I_GroupItem_UserList
       :all_user_info="all_user_info"
       :group="group"
       :user_lever="user_lever"
     />
+    <!-- 群组的过滤器，提交一个on-items的方法 -->
     <I_GroupItem_FilteringLookUp
       :url_name="url_name"
       :key="key"
       :page="page"
       @on-items="set_items"
     />
+    <!-- 分页控制器 -->
     <I_PageController
       :page="page"
       @on-page="set_page"
     />
+    <!-- 群组的项目列表 -->
     <I_GroupItem_ItemList
       :items="items"
       :group="group"
@@ -40,6 +50,7 @@
       :item_visible_flag="item_visible_flag"
       @on-item_id="delete_item_data_by_item_id"
     />
+    <!-- 分页控制器，当条目的数量大于5时才会显示 -->
     <I_PageController
       v-if="items.length>=5&&page.page_total>page.page_size"
       :page="page"
@@ -56,6 +67,7 @@ import I_GroupItem_UserList from "./I_GroupItem_UserList.vue";
 import I_GroupItem_FilteringLookUp from "./I_GroupItem_FilteringLookUp.vue";
 import I_PageController from "../I_PageController.vue";
 import I_GroupItem_ItemList from "./I_GroupItem_ItemList.vue";
+import I_BackTop from "../I_BackTop.vue";
 
 export default {
   name:'I_GroupItem',
@@ -71,6 +83,7 @@ export default {
     I_GroupItem_FilteringLookUp,
     I_PageController,
     I_GroupItem_ItemList,
+    I_BackTop,
   },
 
   setup() {

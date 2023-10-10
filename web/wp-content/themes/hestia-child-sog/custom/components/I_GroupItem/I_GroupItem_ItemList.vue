@@ -1,3 +1,4 @@
+<!-- 组件：账本的具体开支列表 -->
 <template>
 	<div class='group_ui_card'  v-if="init_visible_flag">
 		

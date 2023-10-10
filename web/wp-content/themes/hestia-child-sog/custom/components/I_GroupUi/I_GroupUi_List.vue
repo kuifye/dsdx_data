@@ -18,6 +18,8 @@
 
 <script>
 export default {
+	name: 'I_GroupUi_List',
+
 	props: {
     groups: {
       type: Object,

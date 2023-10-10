@@ -1,3 +1,4 @@
+<!-- 组件：账本过滤器 -->
 <template>
   <div v-show="visible_show_flag">
     <a class="i_h3">{{ item_filtering_look_up_flag_raw.tittle }}</a>

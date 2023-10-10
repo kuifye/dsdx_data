@@ -1,3 +1,4 @@
+<!-- 组件：账本开支项具体显示的内容 -->
 <template>
   <div class='group_ui_card_border'>
     <span 

@@ -1,3 +1,4 @@
+<!-- 组件：控制器-添加开支、复制开支等 -->
 <template>
   <div class='group_ui_card' v-if="init_visible_flag">
     <a class="i_h3">{{ form.tittle }}</a> 
@@ -81,15 +82,15 @@
 
       </el-tab-pane>
 
-      <el-tab-pane class="app_el-tab-pane" label="复制开支" name="second">
+      <el-tab-pane class="app_el-tab-pane" label="复制开支" name="reference_item">
         <el-form-item :label=form.string.item_id>
           <el-input clearable v-model="form.item_id" />
         </el-form-item>
         <el-button type="primary" @click="i_item_sign_up_by_reference_id()">创建</el-button>
       </el-tab-pane>
 
-      <el-tab-pane class="app_el-tab-pane" label="Role" name="third">
-        Role
+      <el-tab-pane class="app_el-tab-pane" label="建立关系" name="set_up_item">
+        用于建立条目之间的关系
       </el-tab-pane>
 
       <el-tab-pane class="app_el-tab-pane" label="Task" name="fourth">

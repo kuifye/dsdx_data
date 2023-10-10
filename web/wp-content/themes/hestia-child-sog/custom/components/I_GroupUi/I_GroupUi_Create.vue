@@ -22,6 +22,8 @@
 
 <script>
 export default {
+  name: 'I_GroupUi_Create',
+
   components: {
   },
 

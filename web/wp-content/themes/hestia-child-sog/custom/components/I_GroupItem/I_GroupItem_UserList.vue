@@ -1,3 +1,4 @@
+<!-- 组件：用户列表 -->
 <template>
     <div class="all_user_info">
       <a class="i_h3">该账本用户：</a>
@@ -34,6 +35,8 @@
 
 <script>
 export default {
+  name: 'I_GroupItem_UserList',
+
   props: {
     all_user_info:{
       type: Object,

@@ -30,6 +30,8 @@ import I_PageController from "../I_PageController.vue";
 import I_GroupUi_List from "./I_GroupUi_List.vue";
 
 export default {
+  name: 'I_GroupUi',
+
   components: {
     I_UserInfo,
     I_GroupUi_Join,
