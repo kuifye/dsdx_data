@@ -12,12 +12,11 @@
       <el-form-item label="简介：">
         <el-input v-model="form.description" />
       </el-form-item>
-      <el-form-item>
-        <el-button @click="group" type="primary">创建账本</el-button>
-      </el-form-item>
+      <el-button @click="group" type="primary">创建账本</el-button>
     </el-form>
   </div>
 </div>
+
 </template>
 
 <script>
@@ -35,7 +34,7 @@ export default {
       form:{
         user_id: 0,
         visible_flag: false,
-        group_name: '平摊表' + this.getData(new Date()),
+        group_name: '平摊表' + getData(new Date()),
         class_type: '日常饮食',
         description: "日常饮食平摊",
       }
@@ -57,11 +56,6 @@ export default {
 	
   methods: {
 
-    getData:function(n){
-      n=new Date(n);
-      return n.toLocaleDateString().replace(/\//g, "-") + ":" + n.toTimeString().substr(0, 8);
-    },
-
 		//创建群组
     group:function(){
       const that = this;
@@ -75,7 +69,7 @@ export default {
 						create_user_id: that.user_id,
             group_id: data.data,
             name: name,
-            created_time: this.his.getData(new Date()),
+            created_time: getData(new Date()),
             description: description,
             is_delete: 0,
 						new_item_text: ' ~new',

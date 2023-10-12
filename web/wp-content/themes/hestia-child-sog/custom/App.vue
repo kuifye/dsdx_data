@@ -5,35 +5,24 @@
       <el-container class="main_el-container">
         <el-header class="main_el-header">
           
-          <p>
-            <router-link to="/app">
-              <el-button plain>主页</el-button>
-            </router-link>
+          <el-menu
+          :default-active="activeIndex"
+          background-color="rgb(50, 52, 55)"
+          text-color="#FEFFFF"
+          class="app_el-menu"
+          active-text-color="#e91e63"
+          mode="horizontal"
+          @select="handleSelect"
+          router
+          >
+            <el-menu-item index="/app">主页</el-menu-item>
+            <!-- <el-menu-item index="/app/Test">测试用</el-menu-item>-->
+            <el-menu-item index="/app/I_SignUp">餐饮签到</el-menu-item>
+            <el-menu-item index="/app/I_GroupUi">管理账本</el-menu-item>
+            <!--<el-menu-item index="/app/I_GroupSettlement">结算账本</el-menu-item>
+            <el-menu-item index="/app/I_SetIdentity">设置身份</el-menu-item>-->
 
-            <!-- <router-link to="/app/Test">
-              <el-button>测试用</el-button>
-            </router-link>
-            
-            <router-link to="/app/ToDoList">
-              <el-button>Go to ToDoList</el-button>
-            </router-link> -->
-
-            <router-link to="/app/I_SignUp">
-              <el-button plain>餐饮签到</el-button>
-            </router-link>
-
-            <router-link to="/app/I_GroupUi">
-              <el-button plain>管理账本</el-button>
-            </router-link>
-          
-            <!-- <router-link to="/app/I_GroupSettlement">
-              <el-button>结算账本</el-button>
-            </router-link>
-          
-            <router-link to="/app/I_SetIdentity">
-              <el-button>设置身份</el-button>
-            </router-link> -->
-          </p>
+          </el-menu>
 
         </el-header>
         <el-main class="main_el-main">

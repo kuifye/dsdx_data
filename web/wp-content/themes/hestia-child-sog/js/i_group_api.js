@@ -1,5 +1,11 @@
 //-----------------------------------------------------common----------------------------------------------------------------------------
 
+// 获取时间
+function getData(n){
+	n=new Date(n);
+	return n.toLocaleDateString().replace(/\//g, "-") + ":" + n.toTimeString().substr(0, 8);
+}
+
 //返回一页
 function history_go_back(){
   history.back();
@@ -68,6 +74,7 @@ function getData(n){
 	return n.toLocaleDateString().replace(/\//g, "-") + " " + n.toTimeString().substr(0, 8);
 }
 
+//挂起等待flag，符合条件后则释放线程
 function wait_for(condition, dispatch, resolve_fuc, callback, getters, flag = true) {
 	condition(dispatch).then(function(data){
 		if(data != flag) {

@@ -3,7 +3,6 @@ import NotFound from "../components/NotFound.vue";
 import Home from "../components/Home.vue";
 //测试用，可删除
 import Test from "../components/Test.vue";
-import TodoList from "../components/ToDoList/ToDoList.vue";
 //中兴和苑日常饮食
 import I_SignUp from "../components/I_SignUp.vue";
 //查看用户所有的账本
@@ -32,10 +31,6 @@ const router = VueRouter.createRouter({
 			path: '/app', 
 			name: 'Home',
 			component: Home,
-		},{
-			path: '/app/ToDoList', 
-			name: 'ToDoList', 
-			component: TodoList,
 		},{
 			path: '/app/I_SignUp', 
 			name: 'I_SignUp', 
