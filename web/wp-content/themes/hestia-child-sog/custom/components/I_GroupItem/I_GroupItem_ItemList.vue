@@ -1,22 +1,23 @@
 <!-- 组件：账本的具体开支列表 -->
 <template>
-	<div class='group_ui_card'  v-if="init_visible_flag">
-		
-		<div v-if="item_visible_flag">
-			<div v-for="item in items" :key="item.item_id">
-				<I_GroupItem_ItemUiCard
-					:item="item"
-					:group="group"
-					:user_lever="user_lever"
-					:item_visible_flag="item_visible_flag"
-          :expenses_weight_text="expenses_weight_text"
-          :expenses_weight_measure_text="expenses_weight_measure_text"
-					@on-item_id="delete_item_data_by_item_id"
-				/>
-			</div>
-		</div>
-
-	</div>
+  <div 
+  v-if="init_visible_flag && item_visible_flag" >
+  <el-space wrap :fill-ratio="vertical">
+    <div 
+    v-for="item in items" 
+    :key="item.item_id"
+    >
+      <I_GroupItem_ItemUiCard
+        :item="item"
+        :group="group"
+        :user_lever="user_lever"
+        :item_visible_flag="item_visible_flag"
+        :expenses_weight_text="expenses_weight_text"
+        :expenses_weight_measure_text="expenses_weight_measure_text"
+        @on-item_id="delete_item_data_by_item_id"
+      />
+    </div>
+  </el-space></div>
 </template>
 
 <script>

@@ -16,7 +16,7 @@
           router
           >
             <el-menu-item index="/app">主页</el-menu-item>
-            <el-menu-item index="/app/Test">测试</el-menu-item>
+            <!-- <el-menu-item index="/app/Test">测试</el-menu-item> -->
             <el-menu-item index="/app/I_SignUp">餐饮签到</el-menu-item>
             <el-menu-item index="/app/I_GroupUi">账本管理</el-menu-item>
             <!-- <el-menu-item index="/app/I_GroupSettlement">结算账本</el-menu-item>

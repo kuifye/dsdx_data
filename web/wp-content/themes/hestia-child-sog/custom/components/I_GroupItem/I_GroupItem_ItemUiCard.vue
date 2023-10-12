@@ -1,79 +1,100 @@
 <!-- 组件：账本开支项具体显示的内容 -->
 <template>
-  <div class='group_ui_card_border'>
+  <div>
+    <el-card 
+    class="app_el-card" 
+    shadow="always"
+    style="
+      border: 0.1rem solid #45505F;
+      box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, .6),2px 2px 2px 2px rgb(255, 253, 252)"
+    :body-style="{ 
+      padding: '10px',
+      margin: '0,auto',
+    }">
+
+    <!-- 表头 -->
+    <!-- 删除按钮 -->
     <span 
       v-if="user_lever>=4 || item.user_id==user_id" 
         class="delete_button" 
         @click="is_delete_item(item.id,group.group_id)"> 
         <span v-if="item.father_item_id!=null">
-            {{ item.father_item_id }}-</span>{{ item.id }}.删除 
+          {{ item.father_item_id }}-</span>{{ item.id }}.删除 
       </span>
       <span 
       v-else 
         class="delete_button">
         <span v-if="item.father_item_id!=null">
-            {{ item.father_item_id }}-</span>{{ item.id }}
+        {{ item.father_item_id }}-</span>{{ item.id }}
     </span>
 
-    <a  class="i_h4">
+    <!-- 表标题 -->
+    <a class="i_h4">
       {{ item.display_name }} {{ item.item_name }}
     </a>
 
-    <!-- 报销 -->
-    <div 
-      v-if="item.reimbursement!=0">
-      <div>
-        <a  class="i_h4">
-          <div style="display:inline;white-space: nowrap">
-            <span>待报销：</span>
-            {{ item.reimbursement/100 }}元 <span class="annotation"> {{ item.new_item_text }} </span>
-          </div>
-        </a>
+    <!-- 表内容 -->
+    <div class="text item">
+      <!-- 报销 -->
+      <div 
+        v-if="item.reimbursement!=0">
+        <div>
+          <a  class="i_h4">
+            <div style="display:inline;white-space: nowrap">
+              <span>待报销：</span>
+              {{ item.reimbursement/100 }}元 <span class="annotation"> {{ item.new_item_text }} </span>
+            </div>
+          </a>
+        </div>
+        <div v-if="item.group_id != group.group_id">归属群：{{ item.group_id }}</div>
+        
       </div>
-      <div v-if="item.group_id != group.group_id">归属群：{{ item.group_id }}</div>
+
+      <!-- 支付 -->
+      <div 
+        v-if="item.price!=0">
+        <div>
+          <a  class="i_h4">
+            <div style="display:inline;white-space: nowrap">
+              <span>待支付：</span>
+              {{ item.price/100 }}元 <span class="annotation"> {{ item.new_item_text }} </span>
+            </div>
+          </a>
+        </div>
+        <div v-if="item.group_id != group.group_id">归属群：{{ item.group_id }}</div>
+      </div>
       
-    </div>
 
-    <!-- 支付 -->
-    <div 
-      v-if="item.price!=0">
-      <div>
-        <a  class="i_h4">
+      <!-- 消耗、权重 -->
+      <div 
+        v-if="item.expenses_weight!=0">
+        <a class="i_h4">
           <div style="display:inline;white-space: nowrap">
-            <span>待支付：</span>
-            {{ item.price/100 }}元 <span class="annotation"> {{ item.new_item_text }} </span>
-          </div>
+          {{ expenses_weight_text }}{{ item.expenses_weight/100 }}{{ expenses_weight_measure_text }} <span class="annotation"> {{ item.new_item_text }} </span> </div>
         </a>
       </div>
-      <div v-if="item.group_id != group.group_id">归属群：{{ item.group_id }}</div>
-    </div>
-    
 
-    <!-- 消耗、权重 -->
-    <div 
-      v-if="item.expenses_weight!=0">
-      <a class="i_h4">
-        <div style="display:inline;white-space: nowrap">
-        {{ expenses_weight_text }}{{ item.expenses_weight/100 }}{{ expenses_weight_measure_text }} <span class="annotation"> {{ item.new_item_text }} </span> </div>
-      </a>
+      <!-- 描述 -->
+      <div>{{ item.description }} ({{ item.created_time }})</div>
+
+      <!-- 递归 -->
+      <div 
+        v-if="'children' in item && item.children.length > 0" 
+        v-for="item_children in item.children" :key="item_children.item_id">
+          <I_GroupItem_ItemUiCard 
+            :item="item_children"
+            :group="group"
+            :user_lever="user_lever"
+            :user_id="user_id"
+            :item_visible_flag="item_visible_flag"
+            @on-item_id="is_delete_item"
+          />
+      </div>
+
     </div>
 
-    <!-- 递归 -->
-    <div 
-      v-if="'children' in item && item.children.length > 0" 
-      v-for="item_children in item.children" :key="item_children.item_id">
-        <I_GroupItem_ItemUiCard 
-          :item="item_children"
-          :group="group"
-          :user_lever="user_lever"
-          :user_id="user_id"
-          :item_visible_flag="item_visible_flag"
-          @on-item_id="is_delete_item"
-        />
-    </div>
-    
-    <div>{{ item.description }} ({{ item.created_time }})</div>
 
+    </el-card>
   </div>
 </template>
 
