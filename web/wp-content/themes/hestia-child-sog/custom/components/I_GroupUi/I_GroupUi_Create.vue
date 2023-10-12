@@ -59,9 +59,9 @@ export default {
 		//创建群组
     group:function(){
       const that = this;
-      const name = document.getElementById('name').value;
-      const description = document.getElementById('description').value;
-      const class_type = document.getElementById('class_type').value;
+      const name = this.form.group_name;
+      const description = this.form.description;
+      const class_type = this.form.class_type;
       i_group(name, description, class_type, this.identity)
         .then(function(data){
           var i_group_data = {
