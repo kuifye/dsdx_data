@@ -1,5 +1,5 @@
 <template>
-  <el-backtop :right="15" :bottom="20" />
+  <el-backtop :right="15" :bottom="30" />
 </template>
 
 <script>

@@ -488,10 +488,10 @@ function i_get_all_group_info_by_user_id(page_number,page_size,user_id = null){
 };
 
 //向群组注册一条信息（添加记录）
-function i_sign_up(item_name, description, price, group_id, reimbursement, expenses_weight, rd_pwd = null, father_item_id = null,	reference_id = null){
+function i_sign_up(item_name, description, price, group_id, reimbursement, expenses_weight, rd_pwd = null, father_item_id = null, reference_id = null, occurrence_time = null){
 	return new Promise(function(resolve){
 		jQuery.ajax({
-			url: "/?rest_route=/gongyi/catering/i_sign_up&item_name=" +item_name +"&description=" +description +"&price=" +price +"&group_id=" +group_id +"&reimbursement=" +reimbursement +"&expenses_weight=" +expenses_weight +"&rd_pwd=" +rd_pwd +"&father_item_id=" +father_item_id +"&reference_id=" +reference_id,
+			url: "/?rest_route=/gongyi/catering/i_sign_up&item_name=" +item_name +"&description=" +description +"&price=" +price +"&group_id=" +group_id +"&reimbursement=" +reimbursement +"&expenses_weight=" +expenses_weight +"&rd_pwd=" +rd_pwd +"&father_item_id=" +father_item_id +"&reference_id=" +reference_id + "&occurrence_time=" +occurrence_time,
 			type: "get",
 			dataType: "json",
 			//wp进行的api的nonce验证，如果不验证会显示未登陆，实际就是接口中无法得到用户信息的返回值

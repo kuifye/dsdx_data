@@ -12,7 +12,7 @@
       @tab-click="handleClick"
       class="app_el-tabs"
     >
-      <el-tab-pane class="app_el-tab-pane" label="创建开支" name="common_item">
+      <el-tab-pane class="app_el-tab-pane" label="新建开支" name="common_item">
 
         <!-- 表单 -->
         <el-form :model="form" label-position="left" label-width="100px">
@@ -28,24 +28,24 @@
           <div v-if="!form.flag.more_input_flag">
             <!-- 报销、支付、权重 -->
             <el-form-item :label=form.string.reimbursement>
-              <el-input clearable v-model="form.reimbursement" />
+              <el-input-number v-model="form.reimbursement" :precision="2" :step="1"/>
             </el-form-item>
           </div>
 
           <div v-if="form.flag.more_input_flag">
             <!-- 待报销 -->
             <el-form-item :label=form.string.reimbursement>
-              <el-input clearable v-model="form.reimbursement" />
+              <el-input-number v-model="form.reimbursement" :precision="2" :step="1"/>
             </el-form-item>
 
             <!-- 待支付 -->
             <el-form-item :label=form.string.price>
-              <el-input clearable v-model="form.price" />
+              <el-input-number v-model="form.price" :precision="2" :step="1"/>
             </el-form-item>
 
             <!-- 权重/消耗 -->
             <el-form-item :label=form.string.expenses_weight>
-              <el-input clearable v-model="form.expenses_weight" />
+              <el-input-number v-model="form.expenses_weight" :precision="2" :step="1"/>
             </el-form-item>
           </div>
 
@@ -56,6 +56,18 @@
 
           <!-- 折叠面板 -->
           <div v-if="form.flag.more_input_flag">
+
+            <!-- 该item实际发生的时间、例如：隔一天订餐，则需要将发生时间设定在明天 -->
+            <el-form-item :label=form.string.occurrence_time>
+              <el-date-picker
+                v-model="form.occurrence_time"
+                type="datetime"
+                format="YYYY-MM-DD hh:mm:ss"
+                placeholder="选择日期和时间"
+                value-format="YYYY-MM-DD hh:mm:ss"
+              />
+            </el-form-item>
+
             <!-- 随机密码 -->
             <el-form-item :label=form.string.rd_pwd>
               <el-input clearable v-model="form.rd_pwd" />
@@ -65,6 +77,7 @@
             <el-form-item :label=form.string.father_item_id>
               <el-input clearable v-model="form.father_item_id" />
             </el-form-item>
+
           </div>
         
           <!-- 按钮:创建item -->
@@ -93,9 +106,9 @@
         用于建立条目之间的关系
       </el-tab-pane>
 
-      <el-tab-pane class="app_el-tab-pane" label="Task" name="fourth">
+      <!-- <el-tab-pane class="app_el-tab-pane" label="Task" name="fourth">
         Task
-      </el-tab-pane>
+      </el-tab-pane> -->
 
     </el-tabs>
 
@@ -149,6 +162,7 @@ export default {
           description: '详细描述:',
           rd_pwd: '随机密码:',
           father_item_id: '父节点id:',
+          occurrence_time: '发生时间:',
         },
         flag:{
           visible:false,
@@ -162,6 +176,7 @@ export default {
         description: '日常饮食平摊',
         rd_pwd: null,
         father_item_id: null,
+        occurrence_time: null,
       }
     }
   },
@@ -195,27 +210,33 @@ export default {
 	
   methods: {
 
+    // 清空表格的数值
     form_clear:function(){
       this.form.reimbursement = Number(0);
       this.form.price = Number(0);
       this.form.expenses_weight = Number(0);
     },
 
+    // 创建一条item
     i_item_sign_up:function() {
+      // 获取参数
       const that = this;
       const item_name = this.form.item_name;
       const description = this.form.description;
       const group_id = this.group.group_id;
-      const reimbursement = 100*parseInt(this.form.reimbursement);
       const price = 100*parseInt(this.form.price);
+      const reimbursement = 100*parseInt(this.form.reimbursement);
       const expenses_weight = 100*parseInt(this.form.expenses_weight);
       const rd_pwd = this.form.rd_pwd;
       const father_item_id = this.form.father_item_id;
-
-      i_sign_up(item_name, description, price, group_id, reimbursement, expenses_weight, rd_pwd, father_item_id)
+      const reference_id = null;
+      const occurrence_time = this.form.occurrence_time;
+      // 调用api接口
+      i_sign_up(item_name, description, price, group_id, reimbursement, expenses_weight, rd_pwd, father_item_id, reference_id, occurrence_time)
         .then(function(data){
+          console.log(data)
           if(data.code == '200'){
-            let date_now = getData(new Date())
+            let date_now = getData(new Date());
             var item_data={
               id : data.data,
               created_time: date_now,
@@ -231,6 +252,7 @@ export default {
               expenses_weight: expenses_weight,
               father_item_id: father_item_id,
               user_lever: that.user_lever,
+              occurrence_time: that.form.occurrence_time,
               new_item_text: '  ~New',
             };
             that.$store.commit('add_item_by_url_name', {data: item_data, name: that.url_name});
@@ -240,6 +262,7 @@ export default {
       })
     },
 
+    // 复制一条item
     i_item_sign_up_by_reference_id:function() {
       const that = this;
       const reference_id = this.form.item_id;

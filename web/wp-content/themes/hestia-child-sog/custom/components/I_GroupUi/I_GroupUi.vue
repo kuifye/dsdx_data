@@ -1,18 +1,28 @@
+<!-- 页面：管理账本 -->
 <template>
 	<div>
+    <!-- 回到顶部 -->
+    <I_BackTop/>
+    <!-- 页面主体 -->
 		<div class="i_width">
+      <!-- 用户信息 -->
       <I_UserInfo/>
+      <!-- 加入账本 -->
       <I_GroupUi_Join/>
+      <!-- 创建账本 -->
       <I_GroupUi_Create
         @on-i_group_data="new_i_group_data"
       />
+      <!-- 翻页组件 -->
       <I_PageController
         :page="page"
         @on-page="set_page"
       />
+      <!-- 账本列表 -->
       <I_GroupUi_List
         :groups="groups"
       />
+      <!-- 翻页组件：如果条数大于7才出现 -->
       <I_PageController
         v-if="groups.length>=7"
         :page="page"
@@ -23,6 +33,7 @@
 </template>
 
 <script>
+import I_BackTop from "../I_BackTop.vue";
 import I_UserInfo from "../I_UserInfo.vue";
 import I_GroupUi_Join from "./I_GroupUi_Join.vue";
 import I_GroupUi_Create from "./I_GroupUi_Create.vue";
@@ -33,6 +44,7 @@ export default {
   name: 'I_GroupUi',
 
   components: {
+    I_BackTop,
     I_UserInfo,
     I_GroupUi_Join,
     I_GroupUi_Create,
