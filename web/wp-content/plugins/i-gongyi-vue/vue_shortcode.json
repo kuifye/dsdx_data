@@ -1,0 +1,47 @@
+{
+	"prefix" :"i_vue_",
+	"shortcode_profile" : [
+	{
+		"vm_name" : "i_group_api",
+		"plugin_dir_url": "__FILE__",
+		"path" : "/app_js/",
+		"file_name" :"i_group_api.js",
+		"msg" : "",
+		"description" : "引入该文件以获得所有访问接口的方法。"
+	},{
+		"vm_name" : "group_ui",
+		"plugin_dir_url": "__FILE__",
+		"path" : "/app_js/",
+		"file_name" :"group_ui.js",
+		"msg" : "",
+		"description" : "查看账本"
+	},{
+		"vm_name" : "group_item",
+		"plugin_dir_url": "__FILE__",
+		"path" : "/app_js/",
+		"file_name" :"group_item.js",
+		"msg" : "",
+		"description" : "具体的账本内容"
+	},{
+		"vm_name" : "i_group",
+		"plugin_dir_url": "__FILE__",
+		"path" : "/app_js/",
+		"file_name" :"i_group.js",
+		"msg" : "",
+		"description" : "通过二维码分享进群时，首先经过该页面，然后跳转到group_item页面"
+	},{
+		"vm_name" : "group_item_sign_up_mixin",
+		"plugin_dir_url": "__FILE__",
+		"path" : "/app_js/",
+		"file_name" :"group_item_sign_up_mixin.js",
+		"msg" : "",
+		"description" : "报名、增加开支用的mixin.js"
+	},{
+		"vm_name" : "group_catering_sign_up",
+		"plugin_dir_url": "__FILE__",
+		"path" : "/app_js/",
+		"file_name" :"group_catering_sign_up.js",
+		"msg" : "",
+		"description" : "日常饮食签到。"
+	}
+]}
