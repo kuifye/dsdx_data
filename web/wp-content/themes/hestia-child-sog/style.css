@@ -125,7 +125,7 @@ span.right_icon{
 	border-radius: 5px;
 	border: 0.1rem solid #45505F;
 	padding: 10px;
-	margin: 15px;
+	/* margin: 15px; */
 	box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, .6),
 		2px 2px 2px 2px rgb(255, 253, 252);
 }
