@@ -7,20 +7,20 @@
           
           <el-menu
           :default-active="activeIndex"
-          background-color="rgb(50, 52, 55)"
           text-color="#FEFFFF"
-          class="app_el-menu"
+          background-color="rgb(50, 52, 55)"
           active-text-color="#e91e63"
+          class="app_el-menu"
           mode="horizontal"
           @select="handleSelect"
           router
           >
             <el-menu-item index="/app">主页</el-menu-item>
-            <!-- <el-menu-item index="/app/Test">测试用</el-menu-item>-->
+            <el-menu-item index="/app/Test">测试</el-menu-item>
             <el-menu-item index="/app/I_SignUp">餐饮签到</el-menu-item>
-            <el-menu-item index="/app/I_GroupUi">管理账本</el-menu-item>
-            <!--<el-menu-item index="/app/I_GroupSettlement">结算账本</el-menu-item>
-            <el-menu-item index="/app/I_SetIdentity">设置身份</el-menu-item>-->
+            <el-menu-item index="/app/I_GroupUi">账本管理</el-menu-item>
+            <!-- <el-menu-item index="/app/I_GroupSettlement">结算账本</el-menu-item>
+            <el-menu-item index="/app/I_SetIdentity">设置身份</el-menu-item> -->
 
           </el-menu>
 

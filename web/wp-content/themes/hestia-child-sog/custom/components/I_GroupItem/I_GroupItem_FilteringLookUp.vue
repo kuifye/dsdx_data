@@ -11,6 +11,7 @@
         <div style="display:inline;white-space: nowrap"><span>只看自己：<input type="checkbox" v-model="item_filtering_look_up_flag.just_look_self_item_flag"/> &emsp;</span></div>
         <div style="display:inline;white-space: nowrap"><span>合并权重：<input type="checkbox" v-model="item_filtering_look_up_flag.combine_expenses_weight_flag"/> &emsp;</span></div>
         <div style="display:inline;white-space: nowrap"><span>树状图：<input type="checkbox" v-model="item_filtering_look_up_flag.build_tree_flag"/> &emsp;</span></div>
+
       </div>
     </div>
   </div>
@@ -73,12 +74,10 @@ export default defineComponent({
       //深拷贝一份给临时变量
       var itmes_tempt = JSON.parse(JSON.stringify(this.items_raw));
       
-      var itmes2 = JSON.parse(JSON.stringify(this.items_raw));
-      
       //建立一个临时的权重之和计算表
       var items_combine_expenses_weight = {}
-      //遍历items
 
+      //遍历items
       for(let i=0;i<itmes_tempt.length;i++){
 
         //如果只看自己
@@ -156,6 +155,9 @@ export default defineComponent({
         // console.log(itmes_tempt); // 输出树状结构数据
       };
 
+      // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      // 需要开发，这里需要返回一个数组的长度给父组件
+      // let page_total = length(itmes_tempt);
       
       // 输出最终结果
       itmes_tempt = itmes_tempt.slice(page.page_offset,page.page_offset+page.page_size);

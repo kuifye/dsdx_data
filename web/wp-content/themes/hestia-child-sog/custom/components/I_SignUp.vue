@@ -6,7 +6,9 @@
 				<div class="i_width">
 					<div><a class="i_h1">{{show_data}}</a></div>
 					<div>你已累计登记<a id="count"> {{times_i_count}} </a>次</div>
-					<input v-if="!sign_up_flag"  @click="sign_up" id="sign_up" type="button" value="提交" />
+					<br>
+					<el-button type="primary" v-if="!sign_up_flag"  @click="sign_up" id="sign_up" type="button">提交</el-button>
+					<!-- <input v-if="!sign_up_flag"  @click="sign_up" id="sign_up" type="button" value="提交" /> -->
 				</div>
 			</div>
 		</div>
@@ -52,6 +54,7 @@ export default defineComponent({
 
   setup () {
 
+		// 设置子组件的相关信息
 		const Ref_I_GroupItem_FilteringLookUp = ref(null);
 		const Ref_I_GroupItem_ItemList = ref(null);
 		const set_ref_value = () => {

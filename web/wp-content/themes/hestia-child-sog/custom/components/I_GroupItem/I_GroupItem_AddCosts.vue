@@ -95,15 +95,28 @@
 
       </el-tab-pane>
 
+      <!-- 复制、引用开支 -->
       <el-tab-pane class="app_el-tab-pane" label="复制开支" name="reference_item">
+
         <el-form-item :label=form.string.item_id>
           <el-input clearable v-model="form.item_id" />
         </el-form-item>
+
         <el-button type="primary" @click="i_item_sign_up_by_reference_id()">创建</el-button>
+        <I_GroupItem_RefGroupInfo
+          :url_name="url_name"
+        />
+
       </el-tab-pane>
 
+      <!-- 建立关系 -->
       <el-tab-pane class="app_el-tab-pane" label="建立关系" name="set_up_item">
-        用于建立条目之间的关系
+        用于建立条目之间的关系_开发中……
+
+        <I_GroupItem_RefGroupInfo
+        :url_name="url_name"
+        />
+
       </el-tab-pane>
 
       <!-- <el-tab-pane class="app_el-tab-pane" label="Task" name="fourth">
@@ -125,6 +138,8 @@
 </template>
 
 <script>
+import I_GroupItem_RefGroupInfo from "./I_GroupItem_RefGroupInfo.vue";
+
 export default {
   name: 'I_GroupItem_AddCosts',
 
@@ -136,6 +151,7 @@ export default {
   },
 
   components: {
+    I_GroupItem_RefGroupInfo,
   },
 
   setup () {
@@ -234,7 +250,6 @@ export default {
       // 调用api接口
       i_sign_up(item_name, description, price, group_id, reimbursement, expenses_weight, rd_pwd, father_item_id, reference_id, occurrence_time)
         .then(function(data){
-          console.log(data)
           if(data.code == '200'){
             let date_now = getData(new Date());
             var item_data={
