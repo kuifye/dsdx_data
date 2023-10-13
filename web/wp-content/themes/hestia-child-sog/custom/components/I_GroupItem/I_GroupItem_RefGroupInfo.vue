@@ -14,12 +14,20 @@
     size="50%">
     <span>
 
-      <!-- 添加标签页 -->
-      <div style="margin-bottom: 20px">
-        <el-button size="small" @click="add_tab(title,content,0)">
-          添加标签
+      <!-- 在这里键入想要查找的账本id -->
+      <el-form :model="form" label-position="left" label-width="100px">
+        <!-- 输入框 -->
+        <el-form-item label='id:'>
+          <el-input 
+            clearable 
+            placeholder="键入想要查找的账本id"
+            v-model="group_id"/>
+        </el-form-item>
+        <!-- 添加标签页 -->
+        <el-button size="small" @click="look_up_items_by_group_id(group_id)">
+          查找
         </el-button>
-      </div>
+      </el-form>
 
       <!-- 标签页页头 -->
       <el-tabs
@@ -160,6 +168,7 @@ export default defineComponent({
     return{
       title: 'test',
       content: 'test……',
+      group_id: 0,
       items_raws: {},
       tab_index: 1,
       editable_tabs_value: '1',
@@ -241,6 +250,18 @@ export default defineComponent({
       }
       this.editable_tabs_value = active_name
       this.editable_tabs = tabs.filter((tab) => tab.name !== target_name)
+    },
+
+    // 向该组件添加某个群组的引用信息
+    look_up_items_by_group_id(group_id) {
+      const that = this;
+      this.$store.commit('set_current_group_id', {data: group_id, name: this.drawer_url_name} );
+      this.$store.dispatch('get_current_group_all_info',this.drawer_url_name).then(function (data) {
+        let title = data.group_raw.name;
+        let content = data;
+        that.items_raws[data.group_raw.group_id] = data
+        that.add_tab(title,content)
+      })
     },
 
     // 向父组件返回数条item

@@ -87,6 +87,7 @@ function wait_for(condition, dispatch, resolve_fuc, callback, getters, flag = tr
 	});
 }
 
+//挂起等待flag，符合条件后则释放线程,带参数
 function wait_for_by_name(condition, dispatch, resolve_fuc, callback, getters, flag, name) {
 	condition(dispatch,name).then(function(data){
 		if(data != flag) {

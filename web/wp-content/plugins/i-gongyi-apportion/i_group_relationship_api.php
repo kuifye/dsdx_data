@@ -139,9 +139,9 @@ rest_route('i_add_item_ids_to_costs_ids', 'i_add_item_ids_to_costs_ids');
 
 function i_delete_items_by_costs_ids(){
 	global $wpdb;
-	// if (is_user_logged_in() == false){
-	// 	return get_401_error();
-	// }
+	if (is_user_logged_in() == false){
+		return get_401_error();
+	}
 	$table_name = get_group_relationship_table_name();
 	$costs_ids = stripslashes(i_GET(null , 'costs_ids'));
 	$user_id = get_current_user_id();
@@ -226,9 +226,9 @@ rest_route('i_look_up_items_by_costs_ids', 'i_look_up_items_by_costs_ids');
 function i_update_items_by_costs_ids(){
 	//初始化，获取参数，并进行类型转换
 	global $wpdb;
-	// if (is_user_logged_in() == false){
-	// 	return get_401_error();
-	// }
+	if (is_user_logged_in() == false){
+		return get_401_error();
+	}
 	$table_name = get_table_name();
 	$table_relationship_name = get_group_relationship_table_name();
 	$costs_ids = stripslashes(i_GET(null , 'costs_ids'));
