@@ -21,8 +21,8 @@
           <el-form-item :label=form.string.item_name>
             <el-input 
             clearable 
-            :placeholder="form.item_name"
-            v-model="form.item_name" />
+            placeholder="键入开支名"
+            v-model="form.item_name"/>
           </el-form-item>
 
           <div v-if="!form.flag.more_input_flag">
@@ -51,7 +51,7 @@
 
           <!-- 详细描述 -->
           <el-form-item :label=form.string.description>
-            <el-input clearable v-model="form.description" />
+            <el-input clearable v-model="form.description" placeholder="小组内循环饮食平摊费用"/>
           </el-form-item>
 
           <!-- 折叠面板 -->
@@ -68,26 +68,40 @@
               />
             </el-form-item>
 
-            <!-- 随机密码 -->
-            <el-form-item :label=form.string.rd_pwd>
-              <el-input clearable v-model="form.rd_pwd" />
-            </el-form-item>
-
             <!-- 父节点id -->
             <el-form-item :label=form.string.father_item_id>
-              <el-input clearable v-model="form.father_item_id" />
+              <el-input clearable v-model="form.father_item_id" placeholder="建议省略"/>
+            </el-form-item>
+
+            <!-- 随机密码 -->
+            <el-form-item :label=form.string.rd_pwd>
+              <el-input clearable v-model="form.rd_pwd" placeholder="向未加入的群添加开支时使用该参数"/>
             </el-form-item>
 
           </div>
         
           <!-- 按钮:创建item -->
-          <el-button type="primary" @click="i_item_sign_up()">创建</el-button>
-          <el-button  @click="form_clear()">清零</el-button>
+          <el-row :gutter="20">
+            <el-col :span="6">
+              <el-button type="primary" @click="i_item_sign_up()">创建</el-button>
+            </el-col>
+            <el-col :span="6">
+              <I_GroupItem_RefGroupInfo 
+                :url_name="url_name"
+                @on-emit_items="ref_this_item"
+              />
+            </el-col>
+            <el-col :span="6">
+              <el-button type="warning"  @click="form_clear()">清零</el-button>
+            </el-col>
+          </el-row>
 
+          <!-- 提示信息 -->
           <div v-if="form.flag.more_input_flag">
+            <br>
             <!-- 提示信息 -->
             <el-alert type="info" show-icon :closable="false">
-              <a>_ ⚠ 注意 ⚠ _</a>
+              <a>_ ⚠ 注意 ⚠ _</a><br>
               待支付和待报销核验方式不同，谨慎填写。
             </el-alert>
           </div>
@@ -98,24 +112,82 @@
       <!-- 复制、引用开支 -->
       <el-tab-pane class="app_el-tab-pane" label="复制开支" name="reference_item">
 
+        <!-- 被引用的id输入框 -->
         <el-form-item :label=form.string.item_id>
           <el-input clearable v-model="form.item_id" />
         </el-form-item>
 
-        <el-button type="primary" @click="i_item_sign_up_by_reference_id()">创建</el-button>
-        <I_GroupItem_RefGroupInfo
-          :url_name="url_name"
-        />
+        <!-- 按钮 -->
+        <el-row :gutter="20">
+          <el-col :span="6">
+            <el-button type="primary" @click="i_item_sign_up_by_reference_id()">创建</el-button>
+          </el-col>
+          <el-col :span="6">
+            <I_GroupItem_RefGroupInfo
+              :url_name="url_name"
+              @on-emit_items="ref_this_item"
+            />
+          </el-col>
+        </el-row>
+
+        <br>
+        <!-- 提示信息 -->
+        <el-alert type="info" show-icon :closable="false">
+          <a>_ ⚠ 注意 ⚠ _</a><br>
+          该复制是地址引用，而不是值复制，被复制的值改变后，更新方法会同时更新新值。
+        </el-alert>
 
       </el-tab-pane>
 
       <!-- 建立关系 -->
       <el-tab-pane class="app_el-tab-pane" label="建立关系" name="set_up_item">
-        用于建立条目之间的关系_开发中……
+        功能开发中……
 
-        <I_GroupItem_RefGroupInfo
-        :url_name="url_name"
-        />
+        <!-- 输入栏 -->
+        *开支名:<el-input 
+          clearable 
+          placeholder="键入开支名"
+          v-model="form.item_name"/>
+
+        <!-- 按钮栏 -->
+        <el-row :gutter="20">
+          <!-- 新建 -->
+          <el-col :span="6">
+            <el-button type="primary" @click="">新建</el-button>
+          </el-col>
+          <!-- 引入按钮 -->
+          <el-col :span="6">
+            <I_GroupItem_RefGroupInfo
+              :url_name="url_name"
+              @on-emit_items="add_binded_items"
+            />
+          </el-col>
+        </el-row>
+        <br>
+
+        <!-- 间隔 -->
+        <el-space wrap :fill="true">
+        <!-- 展示原材料的信息 -->
+        <div 
+          v-for="binded_item in form.binded_items"
+          >
+          <el-row :gutter="20">
+            <!-- 原材料的信息 -->
+            <el-col :span="12">{{ binded_item.id }}. {{ binded_item.item_name }}</el-col>
+            <el-col :span="4">支付:{{ Number(binded_item.price)*binded_item.number/100 }}￥</el-col>
+            <el-col :span="4">报销:{{ Number(binded_item.reimbursement)*binded_item.number/100 }}￥</el-col>
+            <el-col :span="4">权重:{{ Number(binded_item.expenses_weight)*binded_item.number/100 }}</el-col>
+
+            <!-- 原材料的数量、以及删除按钮 -->
+            <el-col :span="14">
+              份数:<el-input-number v-model="binded_item.number" :step="0.25" />
+            </el-col>
+            <el-col :span="4" :offset="6">
+              <el-button type="danger" @click="delete_binded_items([binded_item])">删除</el-button>
+            </el-col>
+          </el-row>
+        </div>
+      </el-space>
 
       </el-tab-pane>
 
@@ -169,6 +241,7 @@ export default {
       group: {},
       form:{
         tittle: '控制台：',
+        binded_items:[],
         string:{
           item_id: '货物id:',
           item_name: '*开支名:',
@@ -185,11 +258,11 @@ export default {
           more_input_flag:false,
         },
         item_id: null,
-        item_name: '日常餐饮',
+        item_name: null,
         reimbursement: Number(0),
         price: Number(0),
         expenses_weight: Number(0),
-        description: '日常饮食平摊',
+        description: null,
         rd_pwd: null,
         father_item_id: null,
         occurrence_time: null,
@@ -231,14 +304,17 @@ export default {
       this.form.reimbursement = Number(0);
       this.form.price = Number(0);
       this.form.expenses_weight = Number(0);
+      this.form.occurrence_time = null;
     },
 
     // 创建一条item
     i_item_sign_up:function() {
       // 获取参数
       const that = this;
-      const item_name = this.form.item_name;
-      const description = this.form.description;
+      let item_name = this.form.item_name;
+      if(item_name==null){item_name='日常餐饮';}
+      let description = this.form.description;
+      if(description==null){description='日常饮食平摊';}
       const group_id = this.group.group_id;
       const price = 100*parseInt(this.form.price);
       const reimbursement = 100*parseInt(this.form.reimbursement);
@@ -292,6 +368,45 @@ export default {
           }
       })
     },
+
+    // 引入一条item信息
+    ref_this_item:function(items) {
+      const that = this;
+      let item = items[0];
+      this.form.item_id = item.id;
+      this.form.item_name = item.item_name;
+      this.form.reimbursement = item.reimbursement;
+      this.form.price = item.price;
+      this.form.expenses_weight = item.expenses_weight;
+      this.form.description = item.description;
+      this.form.rd_pwd = item.rd_pwd;
+      this.form.father_item_id = item.father_item_id;
+      this.form.occurrence_time = item.occurrence_time;
+      this.form.flag.more_input_flag = true;
+    },
+
+    // 增加原材料item
+    add_binded_items:function(items) {
+      const that = this;
+      for(let i = 0;i < items.length;i++){
+        items[i].number = 1;
+        that.form.binded_items.push(items[i]);
+      };
+    },
+
+    // 删除一组原材料
+    delete_binded_items:function(items) {
+      const that = this;
+      for(let i = 0;i < items.length;i++){
+        let id = items[i].id
+        for(let j = 0;j < that.form.binded_items.length;j++){
+          if(id == that.form.binded_items[j].id){
+            that.form.binded_items.splice(j, 1);j--;
+            break;
+          }
+        }
+      }
+    }
 
   },
 };

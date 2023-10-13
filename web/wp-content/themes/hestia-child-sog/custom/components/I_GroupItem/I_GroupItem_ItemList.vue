@@ -1,12 +1,15 @@
 <!-- 组件：账本的具体开支列表 -->
 <template>
+  <!-- 显示标签页 -->
   <div 
   v-if="init_visible_flag && item_visible_flag" >
   <el-space wrap :fill-ratio="vertical">
+    <!-- 遍历items -->
     <div 
     v-for="item in items" 
     :key="item.item_id"
     >
+      <!-- 选项卡 -->
       <I_GroupItem_ItemUiCard
         :item="item"
         :group="group"
@@ -83,6 +86,7 @@ export default defineComponent({
 	
   methods: {
 
+    // 删除一个不需要的选项
 		delete_item_data_by_item_id: function(item_id) {
 			this.$emit('on-item_id', item_id);
 		}
